@@ -2,7 +2,8 @@ name: auto_screen_example
 description: Example app for the auto_screen package
 publish_to: "none" # prevents accidental publishing
 version: 1.0.0
-
+#authors:
+#  - Rokibul Hasan <rokibulhasancse@gmail.com>
 environment:
   sdk: ">=3.10.0 <4.0.0"
 
