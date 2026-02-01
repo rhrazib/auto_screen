@@ -34,7 +34,7 @@ class ScreenUtil {
   late double _appBarHeight;
 
   /// Text scale factor
-  late double _textScaleFactor;
+  late TextScaler _textScaleFactor;
 
   /// Device orientation
   late Orientation _orientation;
@@ -67,7 +67,7 @@ class ScreenUtil {
     _instance!._statusBarHeight = mediaQuery.padding.top;
     _instance!._bottomBarHeight = mediaQuery.padding.bottom;
     _instance!._appBarHeight = 56.0; // Default AppBar height
-    _instance!._textScaleFactor = mediaQuery.textScaleFactor;
+    _instance!._textScaleFactor = mediaQuery.textScaler;
     _instance!._orientation = mediaQuery.orientation;
   }
 
@@ -116,7 +116,7 @@ class ScreenUtil {
   double get pixelRatio => _pixelRatio;
 
   /// Text scale factor
-  double get textScaleFactor => _textScaleFactor;
+  TextScaler get textScaleFactor => _textScaleFactor;
 
   /// Current orientation
   Orientation get orientation => _orientation;
@@ -146,9 +146,15 @@ class ScreenUtil {
   /// [fontSize] - Font size from design draft
   /// [allowFontScaling] - Whether to respect system font scaling
   /// Returns proportional font size for current device
-  double setSp(num fontSize, {bool allowFontScaling = ScreenUtil.allowFontScaling}) {
+  double setSp(
+      num fontSize, {
+        bool allowFontScaling = ScreenUtil.allowFontScaling,
+      }) {
     final scaledFontSize = fontSize * scaleText;
-    return allowFontScaling ? scaledFontSize * _textScaleFactor : scaledFontSize;
+
+    if (!allowFontScaling) return scaledFontSize;
+
+    return _textScaleFactor.scale(scaledFontSize);
   }
 
   /// Set size using the smaller of width/height ratio
@@ -281,7 +287,7 @@ extension ResponsiveContext on BuildContext {
   double get devicePixelRatio => MediaQuery.of(this).devicePixelRatio;
 
   /// Text scale factor
-  double get textScaleFactor => MediaQuery.of(this).textScaleFactor;
+  TextScaler get textScaleFactor => MediaQuery.of(this).textScaler;
 
   /// Safe area padding
   EdgeInsets get safePadding => MediaQuery.of(this).padding;

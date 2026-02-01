@@ -1,3 +1,14 @@
+/// Responsive breakpoints and media query utilities for Auto Screen.
+///
+/// Provides:
+/// - Screen size breakpoints
+/// - MediaQuery helpers
+/// - Responsive value utilities
+/// - Conditional widgets for device types
+library responsive_breakpoints;
+
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'screen_util.dart';
 
@@ -85,7 +96,7 @@ class MediaQueryHelper {
   double get devicePixelRatio => MediaQuery.of(context).devicePixelRatio;
 
   /// Get text scale factor
-  double get textScaleFactor => MediaQuery.of(context).textScaleFactor;
+  TextScaler get textScaleFactor => MediaQuery.of(context).textScaler;
 
   /// Get padding (safe area)
   EdgeInsets get padding => MediaQuery.of(context).padding;
@@ -134,11 +145,24 @@ class MediaQueryHelper {
   double get diagonalInches {
     final widthInches = width / (devicePixelRatio * 160);
     final heightInches = height / (devicePixelRatio * 160);
-    return (widthInches * widthInches + heightInches * heightInches).abs();
+  //  return (widthInches * widthInches + heightInches * heightInches).abs();
+    return math.sqrt(
+      widthInches * widthInches + heightInches * heightInches,
+    );
+
   }
 }
 
-/// Responsive value that changes based on screen size
+/// A generic responsive value that changes based on screen size.
+///
+/// Example:
+/// ```dart
+/// final columns = ResponsiveValue<int>(
+///   phone: 2,
+///   tablet: 3,
+///   desktop: 4,
+/// ).value;
+/// ```
 class ResponsiveValue<T> {
   final T phone;
   final T? tablet;
@@ -286,7 +310,7 @@ class MobileOnly extends StatelessWidget {
     Key? key,
     required this.child,
     this.fallback,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -307,7 +331,7 @@ class TabletOnly extends StatelessWidget {
     Key? key,
     required this.child,
     this.fallback,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -328,7 +352,7 @@ class DesktopOnly extends StatelessWidget {
     Key? key,
     required this.child,
     this.fallback,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -347,7 +371,7 @@ class HideOnMobile extends StatelessWidget {
   const HideOnMobile({
     Key? key,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -365,7 +389,7 @@ class HideOnTablet extends StatelessWidget {
   const HideOnTablet({
     Key? key,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -383,7 +407,7 @@ class HideOnDesktop extends StatelessWidget {
   const HideOnDesktop({
     Key? key,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

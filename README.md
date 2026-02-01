@@ -22,7 +22,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  auto_screen: ^0.0.2
+  auto_screen: ^0.0.3
 ```
 
 Then run:
@@ -619,9 +619,9 @@ Check that you're using the correct design dimensions in initialization.
 
 This is normal! The package scales based on your design dimensions. If something looks wrong, verify your design file dimensions.
 
-## 📞 Support
+## rokibulhasancse@gmail.com Support
 
-For issues and feature requests, please visit the [GitHub repository](https://github.com/yourusername/auto_screen).
+For issues and feature requests, please visit the [GitHub repository](https://github.com/rhrazib/auto_screen).
 
 ---
 

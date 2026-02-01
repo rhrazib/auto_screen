@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'screen_util.dart';
-import 'responsive_text.dart';
-import 'responsive_layout.dart';
-import 'responsive_breakpoints.dart';
+import 'package:auto_screen/screen_util.dart';
+import 'package:auto_screen/responsive_text.dart';
+import 'package:auto_screen/responsive_layout.dart';
+import 'package:auto_screen/responsive_breakpoints.dart';
 
 void main() {
   runApp(const MyApp());
@@ -126,9 +126,9 @@ class HomePage extends StatelessWidget {
           Text('Body Medium', style: ResponsiveText.bodyMedium()),
           Text('Body Small', style: ResponsiveText.bodySmall()),
           Text('Caption', style: ResponsiveText.caption()),
-          
+
           ResponsiveSizedBox(height: 16),
-          
+
           // Using AdaptiveText for auto-scaling
           AdaptiveText(
             'This text auto-scales based on screen size',
@@ -148,7 +148,7 @@ class HomePage extends StatelessWidget {
         children: [
           Text('Responsive Spacing', style: ResponsiveText.h3()),
           ResponsiveSizedBox(height: 8),
-          
+
           // Pre-defined spacing
           Container(
             padding: ResponsivePadding.xs,
@@ -156,21 +156,21 @@ class HomePage extends StatelessWidget {
             child: Text('Extra Small Padding', style: ResponsiveText.bodySmall()),
           ),
           ResponsiveSpacing.vertical(8),
-          
+
           Container(
             padding: ResponsivePadding.sm,
             color: Colors.orange.shade100,
             child: Text('Small Padding', style: ResponsiveText.bodySmall()),
           ),
           ResponsiveSpacing.vertical(8),
-          
+
           Container(
             padding: ResponsivePadding.md,
             color: Colors.yellow.shade100,
             child: Text('Medium Padding', style: ResponsiveText.bodySmall()),
           ),
           ResponsiveSpacing.vertical(8),
-          
+
           Container(
             padding: ResponsivePadding.lg,
             color: Colors.green.shade100,
@@ -189,7 +189,7 @@ class HomePage extends StatelessWidget {
         children: [
           Text('Responsive Layout', style: ResponsiveText.h3()),
           ResponsiveSizedBox(height: 8),
-          
+
           // Different layouts for different devices
           ResponsiveLayout(
             phone: _buildPhoneLayout(),
@@ -277,7 +277,7 @@ class HomePage extends StatelessWidget {
         children: [
           Text('Responsive Grid', style: ResponsiveText.h3()),
           ResponsiveSizedBox(height: 8),
-          
+
           SizedBox(
             height: 300.h,
             child: ResponsiveGridView(
@@ -287,7 +287,7 @@ class HomePage extends StatelessWidget {
               spacing: 8,
               children: List.generate(
                 8,
-                (index) => Container(
+                    (index) => Container(
                   decoration: BoxDecoration(
                     color: Colors.primaries[index % Colors.primaries.length],
                     borderRadius: ResponsiveBorderRadius.sm,
@@ -315,7 +315,7 @@ class HomePage extends StatelessWidget {
         children: [
           Text('Device Detection', style: ResponsiveText.h3()),
           ResponsiveSizedBox(height: 8),
-          
+
           _infoRow('Screen Width', '${ScreenUtil.sw.toStringAsFixed(1)}dp'),
           _infoRow('Screen Height', '${ScreenUtil.sh.toStringAsFixed(1)}dp'),
           _infoRow('Pixel Ratio', ScreenUtil.pr.toStringAsFixed(2)),
@@ -361,7 +361,7 @@ class HomePage extends StatelessWidget {
         children: [
           Text('Breakpoint Widgets', style: ResponsiveText.h3()),
           ResponsiveSizedBox(height: 8),
-          
+
           // Show only on mobile
           MobileOnly(
             child: Container(
@@ -370,9 +370,9 @@ class HomePage extends StatelessWidget {
               child: Text('Visible only on Mobile', style: ResponsiveText.bodySmall()),
             ),
           ),
-          
+
           ResponsiveSizedBox(height: 8),
-          
+
           // Show only on tablet
           TabletOnly(
             child: Container(
@@ -381,9 +381,9 @@ class HomePage extends StatelessWidget {
               child: Text('Visible only on Tablet', style: ResponsiveText.bodySmall()),
             ),
           ),
-          
+
           ResponsiveSizedBox(height: 8),
-          
+
           // Show only on desktop
           DesktopOnly(
             child: Container(
@@ -392,9 +392,9 @@ class HomePage extends StatelessWidget {
               child: Text('Visible only on Desktop', style: ResponsiveText.bodySmall()),
             ),
           ),
-          
+
           ResponsiveSizedBox(height: 8),
-          
+
           // Hide on mobile
           HideOnMobile(
             child: Container(
@@ -417,7 +417,7 @@ class HomePage extends StatelessWidget {
         children: [
           Text('Extension Examples', style: ResponsiveText.h3()),
           ResponsiveSizedBox(height: 8),
-          
+
           // Using number extensions
           Container(
             width: 150.w, // .w extension for width
@@ -434,9 +434,9 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          
+
           ResponsiveSizedBox(height: 16),
-          
+
           // Percentage-based sizing
           Container(
             width: 80.wp, // 80% of screen width

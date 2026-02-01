@@ -252,7 +252,7 @@ class AdaptiveText extends StatelessWidget {
 
   const AdaptiveText(
     this.text, {
-    Key? key,
+    super.key,
     this.style,
     this.textAlign,
     this.maxLines,
@@ -260,7 +260,7 @@ class AdaptiveText extends StatelessWidget {
     this.allowFontScaling = false,
     this.minFontSize,
     this.maxFontSize,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

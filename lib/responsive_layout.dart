@@ -187,9 +187,9 @@ class ResponsiveBuilder extends StatelessWidget {
   final Widget Function(BuildContext context, DeviceType deviceType) builder;
 
   const ResponsiveBuilder({
-    Key? key,
+   super.key,
     required this.builder,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -223,11 +223,11 @@ class ResponsiveLayout extends StatelessWidget {
   final Widget? desktop;
 
   const ResponsiveLayout({
-    Key? key,
+  super.key,
     required this.phone,
     this.tablet,
     this.desktop,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -256,7 +256,7 @@ class ResponsiveGridView extends StatelessWidget {
   final ScrollPhysics? physics;
 
   const ResponsiveGridView({
-    Key? key,
+   super.key,
     required this.children,
     this.spacing = 16,
     this.phoneColumns = 2,
@@ -264,7 +264,7 @@ class ResponsiveGridView extends StatelessWidget {
     this.desktopColumns = 4,
     this.childAspectRatio,
     this.physics,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -300,7 +300,7 @@ class ResponsiveContainer extends StatelessWidget {
   final AlignmentGeometry? alignment;
 
   const ResponsiveContainer({
-    Key? key,
+   super.key,
     required this.child,
     this.width,
     this.height,
@@ -309,7 +309,7 @@ class ResponsiveContainer extends StatelessWidget {
     this.color,
     this.decoration,
     this.alignment,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -333,11 +333,11 @@ class ResponsiveSizedBox extends StatelessWidget {
   final Widget? child;
 
   const ResponsiveSizedBox({
-    Key? key,
+  super.key,
     this.width,
     this.height,
     this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -355,10 +355,10 @@ class OrientationResponsive extends StatelessWidget {
   final Widget landscape;
 
   const OrientationResponsive({
-    Key? key,
+  super.key,
     required this.portrait,
     required this.landscape,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
